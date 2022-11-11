@@ -1,0 +1,27 @@
+<script>
+
+const MiPromesa = new Promise((resolve, reject) =>{
+    console.log("Estas haciendo algo");
+    setTimeout(function(){
+        resolve(MiPromesa2());
+    },2000);
+});
+
+const MiPromesa2 = () => {
+    return new Promise((resolve, reject)=>{
+        console.log("Estoy haciendo algo mas")
+        setTimeout(function(){
+            resolve("Se ha terminado todo");
+        },2000);
+    })
+}
+
+MiPromesa.then(resultado=>{
+    return resultado;
+}).then(mensaje =>{
+    console.log(mensaje);
+}).catch(message=> {
+    console.error(message);
+})
+
+</script>
